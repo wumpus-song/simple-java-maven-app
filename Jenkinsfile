@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'maven:3.3.3'
-            args '-v //C/Users/tzs91/.m2:/root/.m2'
+            args '-v //C/Users/SONG/.m2:/root/.m2'
         }
     }
     stages {
@@ -39,6 +39,7 @@ pipeline {
 //         }
         stage('Deliver') {
             steps {
+                sh "chmod +x ./jenkins/scripts/deliver.sh"
                 sh './jenkins/scripts/deliver.sh'
             }
         }
